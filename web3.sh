@@ -1,10 +1,8 @@
 #!/bin/bash
 
-p1=204963823041217241
-p2=409927646082434481
-p3=113868790578454
-
-for ((page=$p2; page>=$p1; page-=($RANDOM * ($RANDOM) * $RANDOM))) ; do
+for ((i=1; i<=10000000; i+=1)) ; do
+  p1=$(shuf -i 204963823041217241-409927646082434481 -n1)
+  page=$p1
   webserv="https://privatekeys.pw/keys/bitcoin/$page"
 
   key="16jY7qLJnxb7CHZyqBP8qca9d51gAjyXQN"
@@ -16,4 +14,3 @@ for ((page=$p2; page>=$p1; page-=($RANDOM * ($RANDOM) * $RANDOM))) ; do
       echo $page
    fi
 done
-
